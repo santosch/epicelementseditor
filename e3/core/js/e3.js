@@ -29,8 +29,32 @@
             }
 
             return viewModel;
+        },
+
+        /**
+         * A viewModel for one E3
+         * @param {array} elements
+         * @constructor
+         */
+        E3model = function (elements) {
+            this.elements = ko.observableArray(elements || []);
+
+            /**
+             * @param elements
+             */
+            this.setElements = function (elements) {
+                this.elements(elements);
+            }
         };
 
+    /*
+     * Attach an E3Model to every editor
+     */
+    $(document).ready(function () {
+        $('.e3-area').each(function (i, node) {
+            ko.applyBindings(new E3model(), node);
+        });
+    });
 
 
 })(window.jQuery, window.ko, window.e3config);

@@ -1,4 +1,6 @@
 <div class="e3-area">
+    <button data-bind="click: getNewElement.bind($data, elements)">Neu</button>
+
     <div class="e3-elements">
         <!-- ko foreach: {data: elements, as: 'element'} -->
         <div class="e3-element" data-bind="template: {
@@ -8,4 +10,11 @@
         </div>
         <!--/ko-->
     </div>
+
+    <!-- ko if: displayAddElementDialogue() -->
+    <div class="e3-add-element-form">
+        Hinzufügen!
+        <button data-bind="click: saveNewElement">Speichern</button>
+    </div>
+    <!-- /ko -->
 </div>

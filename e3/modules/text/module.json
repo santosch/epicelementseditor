@@ -1,19 +1,14 @@
 [
   {
+    "key": "title",
+    "label": "Title",
     "type": "text",
-    "data": [
-      {
-        "key": "title",
-        "label": "Title",
-        "type": "text",
-        "default": "Hello World!"
-      },
-      {
-        "key": "text",
-        "label": "Text",
-        "type": "textarea",
-        "default": "Lorem ipsum dolor sit amet..."
-      }
-    ]
+    "default": "Hello World!"
+  },
+  {
+    "key": "text",
+    "label": "Text",
+    "type": "textarea",
+    "default": "Lorem ipsum dolor sit amet..."
   }
 ]

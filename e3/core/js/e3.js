@@ -22,13 +22,12 @@
                     _type: name
                 };
 
-            if (config && config[name]) {
-                $.each(config[name], function (i, field) {
+            if (config && config[name] && config[name].data) {
+                $.each(config[name].data, function (i, field) {
                     viewModel[field.key] = ko.observable(field.default);
                 });
             }
 
-            console.log(viewModel);
             return viewModel;
         },
 
@@ -42,6 +41,21 @@
             var self = this;
 
             /**
+             * @type {{}}
+             */
+            self.moduleConfig = window.e3config;
+
+            /**
+             * Config again as array
+             * @type {Array}
+             */
+            self.modules = [];
+            $.each(self.moduleConfig, function (key, config) {
+                config.type = key;
+                self.modules.push(config);
+            });
+
+            /**
              * The currently displayed elements
              */
             self.elements = ko.observableArray(elements || []);
@@ -51,6 +65,12 @@
              * @type {null|ko.observableArray}
              */
             self.addTo = null;
+
+            /**
+             * the element type that shall be added
+             * @type {string}
+             */
+            self.toAdd = ko.observable('');
 
             /**
              * @param elements
@@ -77,7 +97,7 @@
              * Saves the element currently created in
              */
             self.saveNewElement = function () {
-                self.addTo.push(getViewModelForElement('text'));
+                self.addTo.push(getViewModelForElement(self.toAdd().type));
                 self.addTo = null;
                 self.displayAddElementDialogue(false);
             };

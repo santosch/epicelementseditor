@@ -14,6 +14,17 @@
     <!-- ko if: displayAddElementDialogue() -->
     <div class="e3-add-element-form">
         Hinzufügen!
+
+        <select name="typeToAdd" data-bind="
+            options: modules,
+            optionsText: function (item) {
+                return item.label;
+            },
+            value: toAdd
+        ">
+        </select>
+
+
         <button data-bind="click: saveNewElement">Speichern</button>
     </div>
     <!-- /ko -->

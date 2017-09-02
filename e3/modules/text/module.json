@@ -1,14 +1,19 @@
-[
-  {
-    "key": "title",
-    "label": "Title",
-    "type": "text",
-    "default": "Hello World!"
-  },
-  {
-    "key": "text",
-    "label": "Text",
-    "type": "textarea",
-    "default": "Lorem ipsum dolor sit amet..."
-  }
-]
+{
+  "type": "text",
+  "label": "Textblock",
+  "description": "A simple Text Block",
+  "data": [
+    {
+      "key": "title",
+      "label": "Title",
+      "type": "text",
+      "default": "Hello World!"
+    },
+    {
+      "key": "text",
+      "label": "Text",
+      "type": "textarea",
+      "default": "Lorem ipsum dolor sit amet..."
+    }
+  ]
+}
